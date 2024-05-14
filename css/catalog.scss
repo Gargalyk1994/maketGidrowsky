@@ -1,0 +1,215 @@
+@import './fonts.scss';
+@import './variables.scss';
+@import './mixins.scss';
+
+@include reboot();
+@include header();
+@include breadCrumbs();
+
+.head-catalog{
+    .title{
+        @include mainTextBold;
+        font-size: 30px;
+        margin-bottom: 21px;
+    }
+    .box-filter{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 47px;
+    }
+    .construction{
+        display: flex;
+        gap: 10px;
+        .choice-drive{
+            padding: 4px 22px;
+            background-color: $standart;
+            @include mainTextRegular;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+    }
+    .sort{
+        display: flex;
+        align-items: center;
+        .sort-by{
+            padding: 8px 20px;
+            border: 1.50px solid #d7d9df;
+            margin-right: 34px;
+            option{
+                @include mainTextRegular;
+                font-size: 14px;
+            }
+        }
+        a{
+            opacity: 0.3;
+            &:hover{
+                opacity: 1;
+            }
+        }
+        .sort-list{
+            margin-right: 10px;
+        }
+    }
+}
+.wrapper{
+    display: flex;
+    .parametrs{
+        max-width: 301px;
+        .choice-parametrs{
+            display: flex;
+            gap: 42px;
+            margin-bottom: 40px;
+            button{
+                @include mainTextRegular;
+                color: $bright-gray-text;
+                font-size: 16px;
+                letter-spacing: 0.09em;
+                text-transform: uppercase;
+            }
+            button.active{
+                @include mainTextBold();
+                border-bottom: 2px solid $accent;
+            }
+        }
+        details{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            flex-direction: column;
+            margin-bottom: 40px;
+            summary{
+                @include mainTextRegular;
+                font-weight: 600;
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
+            .input-model{
+                margin-bottom: 20px;
+            }
+            .wrapper-choice{
+                display: flex;
+                flex-wrap: wrap;
+                row-gap: 15px;
+                margin-bottom: 20px;
+                input[type="checkbox"]{
+                    margin-right: 3px;
+                }
+                label{
+                    @include mainTextRegular;
+                    font-size: 14px;
+                    color: #000;
+                }
+                button{
+                    @include mainTextBold();
+                    font-size: 12px;
+                    letter-spacing: 0.07em;
+                    color: $bright-gray-text;
+                    padding: 8px 15px;
+                    text-transform: uppercase;
+                    background-color: $standart;
+                }
+                button.active{
+                    color: $white;
+                    background-color: $accent;
+                }
+                button.choice{
+                    color: $white;
+                    background-color: $main-color-text;
+                }
+            }
+            .wrapper-choice.btns-actions{
+                width: 300px;
+                column-gap: 10px;
+            } 
+            .more-choice{
+                @include btnShowMore()
+            }
+            .box-have, .box-news, .box-brand, .box-model, .box-actions, .box-countries{
+                width: 140px;
+            }
+        }
+        .range-price, .power, .power-engine, .max-speed{
+            display: flex;
+            justify-content: space-between;
+        }
+        input[type="range"] {
+            // -webkit-appearance: none;
+            width: 290px;
+            height: 2px;
+            background: $bright-gray-text;
+            background-image: linear-gradient($accent, $accent);
+            background-size: 70% 100%;
+            background-repeat: no-repeat;
+            &:last-child{
+                margin-bottom: 40px;
+            }
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 7px;
+            width: 7px;
+            border-radius: 50%;
+            background: $accent;
+            cursor: ew-resize;
+        }
+        input[type="range"]::-webkit-slider-runnable-track  {
+            -webkit-appearance: none;
+            box-shadow: none;
+            border: none;
+            background: transparent;
+        }
+        .main-choice{
+            padding: 18px 85px;
+            background-color: $standart;
+            @include mainTextRegular();
+            font-size: 15px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            text-align: center;
+            color: #bdbec2;
+            margin:auto 0 15px;
+        }
+        .add{
+            @include mainTextRegular();
+            font-size: 13px;
+            margin-bottom: 15px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        button[type="reset"]{
+            @include mainTextRegular();
+            background-color: transparent;
+            text-align: center;
+            font-size: 13px;
+            text-decoration: underline;
+            text-decoration-skip-ink: none;
+            color: $bright-gray-text;
+            margin: 0 auto; 
+        }
+    }
+    .products{
+        margin-bottom: 100px;
+        .cards{
+            @include positionCards();
+            justify-content: space-between;
+            margin-bottom: 69px;
+            @include card();
+        }
+        .btns-pages{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            .btn-page, .more-pages{
+                @include secondText2();
+                display: flex;
+            }
+            .btn-page.active{
+                border: 2px solid $accent;
+                color: $accent;
+                padding: 10px 16px;
+            }
+        }
+    }
+}
+@include footer();

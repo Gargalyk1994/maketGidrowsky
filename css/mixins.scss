@@ -1,0 +1,432 @@
+//resetting the parameters
+@mixin reboot(){
+    html {
+        box-sizing: border-box;
+    }
+    
+    *,
+    *::before,
+    *::after {
+        box-sizing: inherit;
+    }
+    
+    h1, h2, h3, h4, h5, h6, p, ul, ol, figure, input, textarea, button {
+        border-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    ol, ul{
+        list-style-type: none;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    button{
+		background-color: transparent;
+	}
+    .container{
+        max-width: 1170px;
+        margin: 0 auto;
+    }
+}
+
+// Texts 
+@mixin mainTextBold(){
+    font-family: $font-family;
+    font-weight: 700;
+    color: $main-color-text;
+}
+
+@mixin mainTextRegular(){
+    font-family: $font-family;
+    font-weight: 400;
+    color: $main-color-text;
+}
+
+@mixin secondText(){
+    color: $accent;
+    font-family: $second-family;
+    font-weight: 700;
+}
+
+@mixin secondText2(){
+    font-family: $second-family;
+    font-weight: 400;
+    font-size: 14px;
+    color: $bright-gray-text;
+}
+
+@mixin thirdText(){
+    color: $white;
+    font-family: $third-family;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+}
+//button
+@mixin btnSale(){
+	background-color: $accent;
+	font-family: $font-family;
+	font-weight: 400;
+	font-size: 12px;
+	letter-spacing: 0.07em;
+	text-transform: uppercase;
+	text-align: center;
+	color: $white;
+}
+
+@mixin btnShowMore(){
+	@include mainTextRegular;
+	font-size: 14px;
+	text-decoration: underline;
+	text-decoration-skip-ink: none;
+	color: $accent;
+}
+
+@mixin btnBuy(){
+	background-color: $accent;
+	border-radius: 3px;
+	@include mainTextRegular();
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	text-align: center;
+	color: $white;
+	cursor: pointer;
+}
+
+@mixin accentLineForNav(){
+	&::after{
+		display: block;
+		position: absolute;
+		top: 37px;
+		left: 50%;
+		transform: translate(-50%);
+		content: "";
+		background-color: $accent;
+		height: 3px;
+		width: 0%;
+		transition: width 0.2s ease;
+	}
+	&:hover:after, &:focus:after{
+		font-weight: 600;
+		width: 100%;
+	}
+}
+//finished sections
+@mixin navSection(){
+	.navigation2{
+		background-color: $standart;
+		ul{
+			min-height: 53px;
+			display: flex;
+			gap: 16px;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
+			li a{
+				@include mainTextRegular();
+				font-size: 20px;
+				position: relative;
+				display: inline-block;
+				text-transform: capitalize;
+				@include accentLineForNav();
+			}
+		}
+	}
+}
+
+@mixin header(){
+    .navigation1{
+		min-height: 122px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		ul{
+			display: flex;
+			gap: 50px;
+			flex-wrap: wrap;
+			li>a{
+				@include mainTextBold();
+				font-size: 20px;
+			}
+			@media screen and (max-width:1024px) {
+				display: none;
+			}
+		}
+		button.burger{
+			opacity: 0;
+			@media screen and (max-width:1024px) {
+				opacity: 1;
+			}
+		}
+		.logo1{
+			@media screen and (max-width:320px) {
+				display: none;
+			}
+		}
+		.logo2{
+			display: none;
+			@media screen and (max-width:320px) {
+				display: block;
+			}
+		}
+		.location{
+			@include mainTextBold();
+			text-align: center;
+			::before{
+				content:url(../images/location.svg);
+			}
+			.adress{
+				@include mainTextBold();
+				font-size: 20px;
+			}
+			@media screen and (max-width:1024px) {
+				display: none;
+			}
+		}
+		.social-icons{
+			display: flex;
+			gap: 10px;
+			.icon{
+				width: 24px;
+			}
+			.box-cart{
+				width: 44px;
+				height: 30px;
+				padding-top: 3px;
+				position: relative;
+				span{
+					color: $white;
+					text-align: center;
+					width: 20px;
+					height: 20px;
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					background-color: $accent;
+					border-radius: 50%;
+				}
+			}	
+		}
+	}
+	@include navSection();
+}
+
+@mixin breadCrumbs(){
+    .bread-crumbs{
+        .bread-crumbs__wrapper{
+            display: flex;
+            gap: 10px;
+            margin: 43px 0 41px;
+            @include mainTextRegular;
+            font-size: 15px;
+            color: $bright-gray-text;
+        }
+    }
+}
+
+@mixin menuSlider(){
+	position: relative;
+	.title{
+		font-family: $second-family;
+		font-weight: 700;
+		font-size: 25px;
+		color: $main-color-text;
+		margin-bottom: 25px;
+	}
+	.menu{
+		display: flex;
+		flex-wrap: wrap;
+		gap: 50px;
+		margin-bottom: 40px;
+		a{
+			position: relative;
+			display: inline-block;
+			@include mainTextRegular();
+			font-size: 15px;
+			text-align: center;
+			@include accentLineForNav();
+		}
+	}
+}
+
+@mixin positionCards(){
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 35px;
+    position: relative;
+}
+
+@mixin card(){
+    .card{
+        width: 270px;
+        height: 403px;
+        background-color: $white;
+        border: 1px solid #cdcdcd;
+        border-radius: 3px;
+        position: relative;
+        &:hover:before{
+            content: 'посмотреть товар';
+            display: block;
+            position: absolute;
+            top: 30%;
+            left: 10%;
+            padding: 18px 22px;
+            background-color: $white;
+            box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+            opacity: 0.8;
+            @include mainTextRegular();
+            font-size: 20px;
+        }
+        &:hover{
+            box-shadow: 3px 3px 20px 0 rgba(50, 50, 50, 0.25);
+            cursor: pointer;
+        }
+        &:hover .details .name, &:hover .details .price {
+            color: $accent;
+        }
+        .like{
+            display: flex;
+            justify-content: space-between;
+            .sale{
+                width: 63px;
+                height: 25px;
+                padding: 8px 15px;
+                @include btnSale();
+            }
+            .heart{
+                padding-top: 16px;
+                padding-right: 18px;
+            }
+        }
+        .details{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            img{
+                width: 200px;
+                height: 200px;
+                margin-bottom: 12px;
+            }
+            .name{
+                @include mainTextRegular();
+                font-size: 18px;
+                text-align: center;
+                margin-bottom: 25px;
+            }
+            .price{
+                font-family: $second-family;
+                font-weight: 700;
+                font-size: 30px;
+                text-align: center;
+                color: $main-color-text;
+            }
+            .no-stock{
+                @include mainTextBold();
+                font-size: 18px;
+                text-align: center;
+                margin-bottom: 13px;
+            }
+            a{
+                font-family: $font-family;
+                font-weight: 400;
+                font-size: 16px;
+                color: $accent;
+                text-decoration: underline;
+            }
+        }
+        .cart{
+            padding: 9px 15px;
+            background-color: $accent;
+            border-radius: 10px 0 0 0;
+            position: absolute;
+            left: 78%;
+            top: 90%;
+        }	
+    }
+}
+
+@mixin footer(){
+    footer{
+		min-height: 232px;
+		background-color: $standart;
+		padding: 43px 0 27px;
+		.wrapper{
+			display: flex;
+			flex-wrap: wrap;
+			margin-bottom: 46px;
+			form {
+				display: flex;
+				flex-direction: column;
+				margin-right: 143px;
+				@media screen and (max-width: 768px) {
+					margin-right: 0;
+					margin-bottom: 10px;
+				}
+				label{
+					@include mainTextBold();
+					font-size: 14px;
+					margin-bottom: 34px;
+				}
+				input{
+					padding: 8px 12px;
+					font-family: $font-family;
+					font-weight: 400;
+					font-size: 14px;
+					color: $bright-gray-text;
+				}
+				button{
+					padding: 10px 16px;
+					background-color: $accent;
+					font-family: $font-family;
+					font-weight: 600;
+					font-size: 11px;
+					letter-spacing: 0.12em;
+					text-transform: uppercase;
+					text-align: center;
+					color: $white;
+					cursor: pointer;
+				}
+			}
+			ul{
+				margin-right: 100px;
+				li{
+					margin-bottom: 4px;
+					a{
+						@include mainTextRegular();
+						font-size: 16px;
+						&:hover {
+							font-weight: 700;
+						}
+					}
+				}
+			}
+			ul.about{
+				margin-right: 63px;
+			}
+			.social-icons{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 30px;
+				a:hover svg defs rect{
+					fill: $accent;
+				}
+			}
+		}
+		.rights{
+			display: flex;
+			justify-content: center;
+			@include mainTextRegular();
+			font-size: 10px;
+			color: #48494d;
+			.offer{
+				margin-right: 81px;
+			}
+		}
+	}
+}

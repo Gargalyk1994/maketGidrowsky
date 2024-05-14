@@ -1,0 +1,614 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("../fonts/SFProDisplay/SF-Pro-Display-Medium.otf") format("truetype");
+}
+@font-face {
+  font-family: "Barlow";
+  src: url("../fonts/Barlow/Barlow-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../fonts/ProximaNova/proximanova_regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Staatliches";
+  src: url("../fonts/Staatliches/Staatliches-Regular.ttf") format("truetype");
+}
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol, figure, input, textarea, button {
+  border-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ol, ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background-color: transparent;
+}
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+.navigation1 {
+  min-height: 122px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navigation1 ul {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+.navigation1 ul li > a {
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 700;
+  color: #2f3035;
+  font-size: 20px;
+}
+@media screen and (max-width: 1024px) {
+  .navigation1 ul {
+    display: none;
+  }
+}
+.navigation1 button.burger {
+  opacity: 0;
+}
+@media screen and (max-width: 1024px) {
+  .navigation1 button.burger {
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 320px) {
+  .navigation1 .logo1 {
+    display: none;
+  }
+}
+.navigation1 .logo2 {
+  display: none;
+}
+@media screen and (max-width: 320px) {
+  .navigation1 .logo2 {
+    display: block;
+  }
+}
+.navigation1 .location {
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 700;
+  color: #2f3035;
+  text-align: center;
+}
+.navigation1 .location ::before {
+  content: url(../images/location.svg);
+}
+.navigation1 .location .adress {
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 700;
+  color: #2f3035;
+  font-size: 20px;
+}
+@media screen and (max-width: 1024px) {
+  .navigation1 .location {
+    display: none;
+  }
+}
+.navigation1 .social-icons {
+  display: flex;
+  gap: 10px;
+}
+.navigation1 .social-icons .icon {
+  width: 24px;
+}
+.navigation1 .social-icons .box-cart {
+  width: 44px;
+  height: 30px;
+  padding-top: 3px;
+  position: relative;
+}
+.navigation1 .social-icons .box-cart span {
+  color: #fff;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-color: #1c62cd;
+  border-radius: 50%;
+}
+
+.navigation2 {
+  background-color: #f0f0f4;
+}
+.navigation2 ul {
+  min-height: 53px;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.navigation2 ul li a {
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 400;
+  color: #2f3035;
+  font-size: 20px;
+  position: relative;
+  display: inline-block;
+  text-transform: capitalize;
+}
+.navigation2 ul li a::after {
+  display: block;
+  position: absolute;
+  top: 37px;
+  left: 50%;
+  transform: translate(-50%);
+  content: "";
+  background-color: #1c62cd;
+  height: 3px;
+  width: 0%;
+  transition: width 0.2s ease;
+}
+.navigation2 ul li a:hover:after, .navigation2 ul li a:focus:after {
+  font-weight: 600;
+  width: 100%;
+}
+
+.bread-crumbs .bread-crumbs__wrapper {
+  display: flex;
+  gap: 10px;
+  margin: 43px 0 41px;
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 400;
+  color: #2f3035;
+  font-size: 15px;
+  color: #c4c4c4;
+}
+
+.head-catalog .title {
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 700;
+  color: #2f3035;
+  font-size: 30px;
+  margin-bottom: 21px;
+}
+.head-catalog .box-filter {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 47px;
+}
+.head-catalog .construction {
+  display: flex;
+  gap: 10px;
+}
+.head-catalog .construction .choice-drive {
+  padding: 4px 22px;
+  background-color: #f0f0f4;
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 400;
+  color: #2f3035;
+  font-size: 14px;
+  opacity: 0.7;
+}
+.head-catalog .sort {
+  display: flex;
+  align-items: center;
+}
+.head-catalog .sort .sort-by {
+  padding: 8px 20px;
+  border: 1.5px solid #d7d9df;
+  margin-right: 34px;
+}
+.head-catalog .sort .sort-by option {
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 400;
+  color: #2f3035;
+  font-size: 14px;
+}
+.head-catalog .sort a {
+  opacity: 0.3;
+}
+.head-catalog .sort a:hover {
+  opacity: 1;
+}
+.head-catalog .sort .sort-list {
+  margin-right: 10px;
+}
+
+.wrapper {
+  display: flex;
+}
+.wrapper .parametrs {
+  max-width: 301px;
+}
+.wrapper .parametrs .choice-parametrs {
+  display: flex;
+  gap: 42px;
+  margin-bottom: 40px;
+}
+.wrapper .parametrs .choice-parametrs button {
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 400;
+  color: #2f3035;
+  color: #c4c4c4;
+  font-size: 16px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+.wrapper .parametrs .choice-parametrs button.active {
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 700;
+  color: #2f3035;
+  border-bottom: 2px solid #1c62cd;
+}
+.wrapper .parametrs details {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+.wrapper .parametrs details summary {
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 400;
+  color: #2f3035;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.wrapper .parametrs details .input-model {
+  margin-bottom: 20px;
+}
+.wrapper .parametrs details .wrapper-choice {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 15px;
+  margin-bottom: 20px;
+}
+.wrapper .parametrs details .wrapper-choice input[type=checkbox] {
+  margin-right: 3px;
+}
+.wrapper .parametrs details .wrapper-choice label {
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 400;
+  color: #2f3035;
+  font-size: 14px;
+  color: #000;
+}
+.wrapper .parametrs details .wrapper-choice button {
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 700;
+  color: #2f3035;
+  font-size: 12px;
+  letter-spacing: 0.07em;
+  color: #c4c4c4;
+  padding: 8px 15px;
+  text-transform: uppercase;
+  background-color: #f0f0f4;
+}
+.wrapper .parametrs details .wrapper-choice button.active {
+  color: #fff;
+  background-color: #1c62cd;
+}
+.wrapper .parametrs details .wrapper-choice button.choice {
+  color: #fff;
+  background-color: #2f3035;
+}
+.wrapper .parametrs details .wrapper-choice.btns-actions {
+  width: 300px;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+.wrapper .parametrs details .more-choice {
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 400;
+  color: #2f3035;
+  font-size: 14px;
+  text-decoration: underline;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+  color: #1c62cd;
+}
+.wrapper .parametrs details .box-have, .wrapper .parametrs details .box-news, .wrapper .parametrs details .box-brand, .wrapper .parametrs details .box-model, .wrapper .parametrs details .box-actions, .wrapper .parametrs details .box-countries {
+  width: 140px;
+}
+.wrapper .parametrs .range-price, .wrapper .parametrs .power, .wrapper .parametrs .power-engine, .wrapper .parametrs .max-speed {
+  display: flex;
+  justify-content: space-between;
+}
+.wrapper .parametrs input[type=range] {
+  width: 290px;
+  height: 2px;
+  background: #c4c4c4;
+  background-image: linear-gradient(#1c62cd, #1c62cd);
+  background-size: 70% 100%;
+  background-repeat: no-repeat;
+}
+.wrapper .parametrs input[type=range]:last-child {
+  margin-bottom: 40px;
+}
+.wrapper .parametrs input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  background: #1c62cd;
+  cursor: ew-resize;
+}
+.wrapper .parametrs input[type=range]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+.wrapper .parametrs .main-choice {
+  padding: 18px 85px;
+  background-color: #f0f0f4;
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 400;
+  color: #2f3035;
+  font-size: 15px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #bdbec2;
+  margin: auto 0 15px;
+}
+.wrapper .parametrs .add {
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 400;
+  color: #2f3035;
+  font-size: 13px;
+  margin-bottom: 15px;
+  text-align: center;
+  margin: 0 auto;
+}
+.wrapper .parametrs button[type=reset] {
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 400;
+  color: #2f3035;
+  background-color: transparent;
+  text-align: center;
+  font-size: 13px;
+  text-decoration: underline;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+  color: #c4c4c4;
+  margin: 0 auto;
+}
+.wrapper .products {
+  margin-bottom: 100px;
+}
+.wrapper .products .cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 35px;
+  position: relative;
+  justify-content: space-between;
+  margin-bottom: 69px;
+}
+.wrapper .products .cards .card {
+  width: 270px;
+  height: 403px;
+  background-color: #fff;
+  border: 1px solid #cdcdcd;
+  border-radius: 3px;
+  position: relative;
+}
+.wrapper .products .cards .card:hover:before {
+  content: "посмотреть товар";
+  display: block;
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  padding: 18px 22px;
+  background-color: #fff;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+  opacity: 0.8;
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 400;
+  color: #2f3035;
+  font-size: 20px;
+}
+.wrapper .products .cards .card:hover {
+  box-shadow: 3px 3px 20px 0 rgba(50, 50, 50, 0.25);
+  cursor: pointer;
+}
+.wrapper .products .cards .card:hover .details .name, .wrapper .products .cards .card:hover .details .price {
+  color: #1c62cd;
+}
+.wrapper .products .cards .card .like {
+  display: flex;
+  justify-content: space-between;
+}
+.wrapper .products .cards .card .like .sale {
+  width: 63px;
+  height: 25px;
+  padding: 8px 15px;
+  background-color: #1c62cd;
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+}
+.wrapper .products .cards .card .like .heart {
+  padding-top: 16px;
+  padding-right: 18px;
+}
+.wrapper .products .cards .card .details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.wrapper .products .cards .card .details img {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 12px;
+}
+.wrapper .products .cards .card .details .name {
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 400;
+  color: #2f3035;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+.wrapper .products .cards .card .details .price {
+  font-family: "Barlow", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+  color: #2f3035;
+}
+.wrapper .products .cards .card .details .no-stock {
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 700;
+  color: #2f3035;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 13px;
+}
+.wrapper .products .cards .card .details a {
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #1c62cd;
+  text-decoration: underline;
+}
+.wrapper .products .cards .card .cart {
+  padding: 9px 15px;
+  background-color: #1c62cd;
+  border-radius: 10px 0 0 0;
+  position: absolute;
+  left: 78%;
+  top: 90%;
+}
+.wrapper .products .btns-pages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+.wrapper .products .btns-pages .btn-page, .wrapper .products .btns-pages .more-pages {
+  font-family: "Barlow", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #c4c4c4;
+  display: flex;
+}
+.wrapper .products .btns-pages .btn-page.active {
+  border: 2px solid #1c62cd;
+  color: #1c62cd;
+  padding: 10px 16px;
+}
+
+footer {
+  min-height: 232px;
+  background-color: #f0f0f4;
+  padding: 43px 0 27px;
+}
+footer .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 46px;
+}
+footer .wrapper form {
+  display: flex;
+  flex-direction: column;
+  margin-right: 143px;
+}
+@media screen and (max-width: 768px) {
+  footer .wrapper form {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+footer .wrapper form label {
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 700;
+  color: #2f3035;
+  font-size: 14px;
+  margin-bottom: 34px;
+}
+footer .wrapper form input {
+  padding: 8px 12px;
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #c4c4c4;
+}
+footer .wrapper form button {
+  padding: 10px 16px;
+  background-color: #1c62cd;
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+}
+footer .wrapper ul {
+  margin-right: 100px;
+}
+footer .wrapper ul li {
+  margin-bottom: 4px;
+}
+footer .wrapper ul li a {
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 400;
+  color: #2f3035;
+  font-size: 16px;
+}
+footer .wrapper ul li a:hover {
+  font-weight: 700;
+}
+footer .wrapper ul.about {
+  margin-right: 63px;
+}
+footer .wrapper .social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+footer .wrapper .social-icons a:hover svg defs rect {
+  fill: #1c62cd;
+}
+footer .rights {
+  display: flex;
+  justify-content: center;
+  font-family: "SF Pro Display", sans-serif;
+  font-weight: 400;
+  color: #2f3035;
+  font-size: 10px;
+  color: #48494d;
+}
+footer .rights .offer {
+  margin-right: 81px;
+}/*# sourceMappingURL=catalog.css.map */

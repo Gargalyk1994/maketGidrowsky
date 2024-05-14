@@ -1,0 +1,219 @@
+@import './fonts.scss';
+@import './variables.scss';
+@import './mixins.scss';
+
+
+@include reboot();
+@include header();
+@include breadCrumbs();
+.bread-crumbs__wrapper{
+    margin-bottom: 45px;
+}
+
+.box-product{
+    .blocks{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 80px;
+        .left-block{
+            max-width: 500px;
+            text-align: center;
+            .sale{
+                width: 94px;
+                height: 44px;   
+                border-radius: 3px;
+                padding: 13px 26px;
+                @include btnSale();
+                margin-bottom: 20px;
+            }
+            img{
+                margin-bottom: 20px;
+            }
+            .start-price{
+                position: relative;
+                @include secondText2();
+                font-size: 30px;
+                color: #000;
+                opacity: 0.6;
+                margin-bottom: 20px;
+                svg{
+                    position: absolute;
+                    bottom: 10%;
+                    left: 35%;
+                }
+            }
+            .action-price{
+                margin-bottom: 20px;
+                @include secondText();
+                font-size: 40px;
+                color: $main-color-text;
+            }
+            .best-offer{
+                @include mainTextRegular();
+                font-size: 15px;
+                color: $accent;
+            }
+        }
+        .right-block{
+            max-width: 570px;
+            .title{
+                @include mainTextBold();
+                font-size: 30px;
+                margin-bottom: 10px;
+            }
+            .code{
+                @include mainTextRegular();
+                font-size: 15px;
+                opacity: 0.6;
+                margin-bottom: 21px;
+            }
+            .box-statistic{
+                display: flex;
+                align-items: center;
+                gap: 25px;
+                margin-bottom: 50px;
+                .ratings {
+                    svg path{
+                        fill: $accent;
+                    }
+                }
+            }
+            .wrapper{
+                display: flex;
+                gap: 34px;
+                margin-bottom: 25px;
+                button{
+                    @include mainTextRegular();
+                    font-size: 20px;
+                    opacity: 0.6;
+                }
+                button.active{
+                    font-weight: 700;
+                    border-bottom: 2px solid $accent;
+                    opacity: 1;
+                }
+
+            }
+            .character-items{
+                max-width: 436px;
+                display: flex;
+                gap: 30px;
+                border-bottom: 1px solid #2f30351a;
+                margin-bottom: 15px;
+                .item, .value{
+                    @include mainTextRegular();
+                    font-size: 20px;
+                    margin-bottom: 6px;
+                }
+                .item{
+                    width: 280px;
+                }
+                .value{
+                    width: 125px;
+                }
+            }
+            .more-choice{
+                display: block;
+                @include btnShowMore();
+                margin-bottom: 45px;
+            }
+            .buy{
+                @include btnBuy();
+                padding: 16px 57px;
+                font-size: 14px;
+            }
+        }
+    }
+}
+@include navSection();
+    
+.about{
+    padding: 50px 0 100px;
+}
+.pickup{
+    .main-form{
+        display: flex;
+        align-items: center;
+        margin-bottom: 50px;
+        .search-form{
+            margin-right: 160px;
+            .store{
+                margin-right: 18px;
+            }
+            
+            .search{
+                background-color: $standart;
+                display: inline-block;
+                border-radius: 3px;
+                font-size: 15px;
+                padding: 9px 12px 9px 18px;
+            }
+            [type='search']{
+                background-color: $standart;
+                border: none;
+                outline: none;
+            }
+        }
+        form{
+            label{
+                @include mainTextRegular();
+                font-size: 17px;
+                opacity: 0.7;
+            }
+            input[type='checkbox']{
+                margin-right: 15px;
+            }
+        }
+        form.take-today{
+            margin-right: 56px;
+        }
+    }
+    table{
+        border-collapse: collapse;//ячейки таблицы сливаются без разделения
+        width: 100%;
+        text-align: left;
+        thead{
+            
+            th{
+                @include mainTextRegular();
+                font-size: 20px;
+                margin-bottom: 20px;
+            }
+        }
+        tbody{
+            td{
+                @include mainTextRegular();
+                color: #2f3035b0;
+                font-size: 16px;
+                padding: 20px 0;
+                border-bottom: 1px solid #2f30351a;
+                .buy{
+                    @include btnBuy();
+                    padding: 10px 42px;
+                    font-size: 13px;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+.general-slider{
+    @include menuSlider();
+    .cards{
+        @include positionCards();
+        @include card();
+        .prev, .next{
+            background-color: transparent;
+            position: absolute;
+            top: 50%;
+            cursor: pointer;
+        }
+        .next{
+            right: -3%;
+        }
+        .prev{
+            left: -3%;
+        }
+    }
+}
+@include footer();
